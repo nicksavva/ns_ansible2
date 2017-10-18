@@ -1,0 +1,16 @@
+---
+- name: Install apache tomcat
+  yum:
+    name: tomcat
+    state: present
+
+- name: Enable tomcat service
+  service:
+    name: tomcat
+    state: started
+    enabled: yes
+
+- name: Create directory structure
+  file:
+    path: /usr/share/tomcat/webapps/ansible
+    state: directory

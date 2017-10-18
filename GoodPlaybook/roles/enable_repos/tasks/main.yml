@@ -1,0 +1,40 @@
+---
+- name: Enable RHEL7 Repo
+  yum_repository:
+    name: Red Hat Enterprise Linux 7
+    description: Enable RHEL7 Repo
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-rpms
+    enabled: true
+    gpgcheck: no
+
+- name: Enable Red Hat Enterprise Linux 7 Common
+  yum_repository:
+    name: Red Hat Enterprise Linux 7 Common
+    description: Enable RHEL Common Repo
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-rh-common-rpms
+    enabled: true
+    gpgcheck: no
+
+- name: Enable Red Hat Enterprise Linux 7 Extras
+  yum_repository:
+    name: Red Hat Enterprise Linux 7 Extras
+    description: Enable RHEL Extras
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-extras-rpms
+    enabled: true
+    gpgcheck: no
+
+- name: Enable Red Hat Enterprise Linux 7 Optional
+  yum_repository:
+    name: Red Hat Enterprise Linux 7 Optional
+    description: Enable RHEL Optional
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-optional-rpms
+    enabled: true
+    gpgcheck: no
+
+- name: Enable Extra Packages for Enterprise Linux 7
+  yum_repository:
+    name: Extra Packages for Enterprise Linux 7
+    description: Enable RHEL Extras
+    baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
+    enabled: true
+    gpgcheck: no

@@ -1,0 +1,7 @@
+---
+- name: Copy static index.html to /usr/share/tomcat/webapps/ansible/index.html
+  template:
+    src: index.html.j2
+    dest: /usr/share/tomcat/webapps/ansible/index.html
+    mode: 0644
+  notify: restart tomcat

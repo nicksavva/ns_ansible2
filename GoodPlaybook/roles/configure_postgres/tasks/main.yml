@@ -1,0 +1,19 @@
+---
+- name: Install postgresql server
+  yum:
+    name: postgresql-server
+    state: present
+
+- name: initilize postgres
+  command: postgresql-setup initdb
+  run_once: true
+
+- name: initilize postgres some more
+  command: chkconfig postgresql on
+  run_once: true
+
+- name: Enable postrgresql service
+  service: 
+    name: postgresql.service
+    state: started
+

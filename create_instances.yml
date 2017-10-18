@@ -1,0 +1,41 @@
+- hosts: jumpbox
+  vars:
+    webserver_name: web1
+    databaseserver_name: db1
+    flavor_name: m1.small
+    webserver_group: webservers
+    database_group: databaseservers
+    deployment: dev
+  tasks:
+  - name: Create a server instance
+    os_server:
+      cloud: ospcloud
+      name: "{{ webserver_name }}"
+      image: rhel-guest
+      meta: "group={{ webserver_group }},deployment_name={{ deployment }}"
+      flavor: "{{ flavor_name }}"
+      security_groups: ICMP_and_SSH
+      key_name: ansible_ssh
+      nics:
+      - net-name: int_network
+      userdata: |
+        #!/bin/bash
+        curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+        cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+        curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+        cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+    register: webserverip
+  - name: Add floating IP to webserver
+    os_floating_ip:
+      cloud: ospcloud
+      state: present
+      reuse: yes
+      server: "{{ webserver_name }}"
+      network: ext_network
+      wait: true
+      timeout: 180
+    register: webserverfloatingip
+  - name: Show webserver public IP
+    debug: var=webserverfloatingip.floating_ip.floating_ip_address
+  - name: Show webserver private IP
+    debug: var=webserverip.openstack.private_v4
