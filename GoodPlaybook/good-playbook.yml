@@ -2,6 +2,7 @@
 - name: Configure Database Servers
   hosts: appdbs
   roles:
+  - osp-facts
   - enable_repos
   - configure_postgres
   become: true
@@ -10,6 +11,7 @@
 - name: Configure Application Servers
   hosts: apps
   roles:
+  - osp-facts
   - enable_repos
   - configure_tomcat
   - install_apache
@@ -20,6 +22,7 @@
 - name: Configure Frontend Servers
   hosts: frontends
   roles:
+  - osp-facts
   - enable_repos
   - configure_haproxy
   become: true
