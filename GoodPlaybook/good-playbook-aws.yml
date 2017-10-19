@@ -1,6 +1,6 @@
 ---
 - name: Configure Database Servers
-  hosts: tag_Name_appdb1
+  hosts: tag_AnsibleGroup_appdbs
   roles:
   - enable_repos
   - configure_postgres
@@ -8,7 +8,7 @@
   become_user: root
 
 - name: Configure Application Servers
-  hosts: apps
+  hosts: tag_AnsibleGroup_apps
   roles:
   - enable_repos
   - configure_tomcat
@@ -18,7 +18,7 @@
   become_user: root
 
 - name: Configure Frontend Servers
-  hosts: frontends
+  hosts: tag_AnsibleGroup_frontends
   roles:
   - enable_repos
   - configure_haproxy
