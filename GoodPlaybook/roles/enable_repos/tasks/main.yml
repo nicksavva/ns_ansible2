@@ -3,7 +3,7 @@
   yum_repository:
     name: Red Hat Enterprise Linux 7
     description: Enable RHEL7 Repo
-    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-rpms
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-rpms
     enabled: true
     gpgcheck: no
 
@@ -11,7 +11,7 @@
   yum_repository:
     name: Red Hat Enterprise Linux 7 Common
     description: Enable RHEL Common Repo
-    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-rh-common-rpms
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-rh-common-rpms
     enabled: true
     gpgcheck: no
 
@@ -19,7 +19,7 @@
   yum_repository:
     name: Red Hat Enterprise Linux 7 Extras
     description: Enable RHEL Extras
-    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-extras-rpms
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-extras-rpms
     enabled: true
     gpgcheck: no
 
@@ -27,7 +27,7 @@
   yum_repository:
     name: Red Hat Enterprise Linux 7 Optional
     description: Enable RHEL Optional
-    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6//rhel-7-server-optional-rpms
+    baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-optional-rpms
     enabled: true
     gpgcheck: no
 
