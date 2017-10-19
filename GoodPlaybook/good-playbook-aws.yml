@@ -1,0 +1,26 @@
+---
+- name: Configure Database Servers
+  hosts: appdbs
+  roles:
+  - enable_repos
+  - configure_postgres
+  become: true
+  become_user: root
+
+- name: Configure Application Servers
+  hosts: apps
+  roles:
+  - enable_repos
+  - configure_tomcat
+  - install_apache
+  - deploy_webapp
+  become: true
+  become_user: root
+
+- name: Configure Frontend Servers
+  hosts: frontends
+  roles:
+  - enable_repos
+  - configure_haproxy
+  become: true
+  become_user: root
