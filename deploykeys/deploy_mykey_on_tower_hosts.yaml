@@ -2,8 +2,8 @@
   become: yes
   tasks:
   - name: Download private key
-    copy:
-      src: /
+    copy: 
+      src: id_rsa 
       dest: /var/lib/awx/.ssh/id_rsa
       mode: 0600
       owner: awx
