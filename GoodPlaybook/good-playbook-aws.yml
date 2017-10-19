@@ -1,6 +1,6 @@
 ---
 - name: Configure Database Servers
-  hosts: tag_three_tier_app_201e_appdb
+  hosts: tag_Name_appdb1
   roles:
   - enable_repos
   - configure_postgres
